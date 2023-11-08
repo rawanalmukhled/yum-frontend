@@ -1,12 +1,13 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Home from "./components/Home";
 
 function App() {
   return (
-    <div>
-      <h1 className="bg-red-500">hi</h1>
-
-      <button className="btn btn-neutral">Neutral</button>
-    </div>
+    <Routes>
+      <Route path="/" Component={Home} />
+      {/* <Route path="/" Component={}/>  */}
+    </Routes>
   );
 }
 
