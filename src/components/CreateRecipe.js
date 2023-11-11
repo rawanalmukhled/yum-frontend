@@ -62,31 +62,31 @@ const AddRecipe = () => {
   return (
     <div className=" h-screen w-screen flex justify-center items-center bg-base-100">
       <div className=" gap-3  w-[50%] h-[80%] flex flex-col justify-center items-center bg-base-200 rounded-md ">
-        <h1 className=" font-mono text-[35px] font-bold">Be Creative </h1>
+        <h1 className="  text-[35px] font-bold">LOOKS DELICIOUS </h1>
+
         <input
           name="recipe"
           onChange={handleChange}
           placeholder="Recipe name"
-          className="w-[500px] h-[50px] rounded-lg px-5 border-[2px] border-black py-1"
+          className="input input-bordered w-[500px] h-[50px] "
         />
-
         <input
           name="owener"
           onChange={handleChange}
           placeholder="Owner name"
-          className="w-[500px] h-[50px] rounded-lg px-5 border-[2px] border-black py-1"
+          className="input input-bordered w-[500px] h-[50px] "
         />
         <input
           name="category"
           onChange={handleChange}
           placeholder="Category"
-          className="w-[500px] h-[50px] rounded-lg px-5 border-[2px] border-black py-1"
+          className="input input-bordered w-[500px] h-[50px] "
         />
         <input
           name="ingredients"
           onChange={handleChange}
           placeholder="Ingredients"
-          className="w-[500px] h-[50px] rounded-lg px-5 border-[2px] border-black py-1"
+          className="input input-bordered w-[500px] h-[50px] "
         />
 
         <label className="flex flex-row gap-2">
@@ -95,6 +95,10 @@ const AddRecipe = () => {
             className="textarea textarea-bordered textarea-lg w-[500px] h-[100px]"
           ></textarea>
         </label>
+        <input
+          type="file"
+          className="file-input file-input-bordered w-[500px] h-[50px]"
+        />
         <button onClick={() => mutate()} className="btn glass mt-2 mr-4 ">
           Add
         </button>
