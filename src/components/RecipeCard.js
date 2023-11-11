@@ -1,7 +1,9 @@
 import React from "react";
 
-const RecipeCard = () => {
+const RecipeCard = (Recipe) => {
   return (
+    //// when the user is login in, he can delete
+
     <div className="flex flex-row gap-2 mt-1 justify-center flex-wrap mb-5">
       <div className="card w-96 bg-base-100 shadow-xl">
         <figure>
@@ -11,7 +13,7 @@ const RecipeCard = () => {
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title"> Recipe name </h2>
+          <h2 className="card-title"> {Recipe.name}</h2>
           <p>Owner Name</p>
           <div className="card-actions justify-end">
             <button className="btn btn-primary">VIEW</button>
