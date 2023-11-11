@@ -1,10 +1,11 @@
 // src/components/HomePage.js
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <>
-      <div className="navbar bg-base-100 flex flex-row">
+      <div className="navbar bg-base-200 flex flex-row">
         <div className="flex-1">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className=" rounded-full w-60">
@@ -14,11 +15,13 @@ const Navbar = () => {
 
           <a className="btn btn-ghost normal-case text-xl">Pinch of Yum</a>
           <div className="flex-none">
-            <ul className="menu menu-horizontal px-1">
-              <li>
-                <a>My Recipes </a>
-              </li>
-            </ul>
+            <Link to={"/MyRecipes"}>
+              <ul className="menu menu-horizontal px-1">
+                <li>
+                  <a>My Recipes </a>
+                </li>
+              </ul>
+            </Link>
           </div>
         </div>
         <div className="flex-none">
