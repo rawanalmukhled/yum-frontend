@@ -10,10 +10,11 @@ import Main from "./components/Main";
 
 import MyRecipes from "./components/MyRecipes";
 import CreateRecipe from "./components/CreateRecipe";
-
+import backGroundImage from "./assest/Banner1.svg";
 function App() {
   return (
-    <div>
+    <div className="w-screen h-screen ">
+      <img className="fixed z-[-1]" src={backGroundImage} />
       <Navbar />
       {/* <Carousel /> */}
 

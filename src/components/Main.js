@@ -7,7 +7,7 @@ import Category from "./Category";
 
 const Main = () => {
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row back">
       <div>
         <Category />
       </div>
