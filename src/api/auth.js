@@ -1,5 +1,5 @@
 import instance from ".";
-import jwt_decode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 const login = async (userInfo) => {
   const { data } = await instance.post(
@@ -22,7 +22,7 @@ const storeToken = (token) => {
 const checkToken = () => {
   const token = localStorage.getItem("token");
   if (token) {
-    const decode = jwt_decode(token);
+    const decode = jwtDecode(token);
     const currentTime = Date.now() / 1000;
     if (decode.exp < currentTime) {
       localStorage.removeItem("token");

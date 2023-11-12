@@ -6,9 +6,9 @@ import { login } from "../api/auth";
 // import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Logining = () => {
+const Register = () => {
   const [userInfo, setUserInfo] = useState("");
-  // const { user, setUser } = useContext();
+  //   const { user, setUser } = useContext();
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -25,7 +25,7 @@ const Logining = () => {
   return (
     <div className=" h-screen w-screen flex justify-center items-center bg-base-100">
       <div className=" gap-3  w-[50%] h-[80%] flex flex-col justify-center items-center bg-base-200 rounded-md ">
-        <h1 className="  text-[35px] font-bold">WELCOME TO YOUR KITCHEN!</h1>
+        <h1 className="  text-[35px] font-bold">JOIN US IN OUR KITCHEN!</h1>
         <div>
           <h1 className="  text-[16px] font-bold">Username: </h1>
           <input
@@ -36,22 +36,38 @@ const Logining = () => {
           />
         </div>
         <div>
+          <h1 className="  text-[16px] font-bold">Email: </h1>
+          <input
+            name="email"
+            onChange={handleChange}
+            placeholder="Email"
+            className="input input-bordered w-[500px] h-[50px] "
+          />
+        </div>
+        <div>
           <h1 className="  text-[16px] font-bold">Password: </h1>
           <input
             name="password"
+            type="password"
             onChange={handleChange}
             placeholder="Password"
-            type="password"
             className="input input-bordered w-[500px] h-[50px] "
+          />
+        </div>
+        <div>
+          <h1 className="  text-[16px] font-bold">Image: </h1>
+          <input
+            type="file"
+            className="file-input file-input-bordered w-[500px] h-[50px]"
           />
         </div>
 
         <button onClick={() => mutate()} className="btn glass mt-2 mr-4 ">
-          Login
+          Register
         </button>
       </div>
     </div>
   );
 };
 
-export default Logining;
+export default Register;

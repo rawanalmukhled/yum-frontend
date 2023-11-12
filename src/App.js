@@ -11,6 +11,8 @@ import Main from "./components/Main";
 import MyRecipes from "./components/MyRecipes";
 import CreateRecipe from "./components/CreateRecipe";
 import backGroundImage from "./assest/Banner1.svg";
+import Home from "./components/Homepage";
+import Register from "./components/Register";
 function App() {
   return (
     <div className="w-screen h-screen ">
@@ -19,7 +21,9 @@ function App() {
       {/* <Carousel /> */}
 
       <Routes>
+        <Route path="/" Component={Home} />
         <Route path="/Login" Component={Login} />
+        <Route path="/Register" Component={Register} />
         <Route path="/Main" Component={Main} />
         <Route path="/MyRecipes" Component={MyRecipes} />
         <Route path="/CreateRecipe" Component={CreateRecipe} />
