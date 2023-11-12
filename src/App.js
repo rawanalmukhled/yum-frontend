@@ -1,13 +1,29 @@
+// src/App.js
+import React from "react";
+
+import Login from "./components/Login";
+import Navbar from "./components/Navbar";
+
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import Home from "./components/Home";
+
+import Main from "./components/Main";
+
+import MyRecipes from "./components/MyRecipes";
+import CreateRecipe from "./components/CreateRecipe";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" Component={Home} />
-      {/* <Route path="/" Component={}/>  */}
-    </Routes>
+    <div>
+      <Navbar />
+      {/* <Carousel /> */}
+
+      <Routes>
+        <Route path="/Login" Component={Login} />
+        <Route path="/Main" Component={Main} />
+        <Route path="/MyRecipes" Component={MyRecipes} />
+        <Route path="/CreateRecipe" Component={CreateRecipe} />
+      </Routes>
+    </div>
   );
 }
 
