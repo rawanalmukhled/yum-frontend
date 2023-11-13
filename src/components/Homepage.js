@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className="w-screen h-screen ">
       <img className="relative" src={homepageimage} />
-      <div className="absolute top-[630px] left-[320px] flex gap-5 m-2 z-[1]">
+      <div className="absolute top-[500px] left-[320px] flex gap-5 m-2 z-[1]">
         <Link to={"/Login"}>
           <button className="btn btn-glass px-9  ">Login</button>
         </Link>
