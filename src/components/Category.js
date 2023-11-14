@@ -12,43 +12,27 @@ const Category = () => {
   if (isLoading) return <h1>loading...</h1>;
 
   return (
-    <div className="flex justify-start items-start mt-2 ml-3 ">
-      <ul className="menu bg-base-200 rounded-box w-60">
-        <li>
-          <div className="flex flex-row justify-between">
-            <p>{Category.category.name}</p>
-            <img
-              src={Category.category.image}
-              className="h-12 w-12 rounded-full"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            />
-          </div>
-        </li>
-      </ul>
+    <div>
+      <div className="flex justify-start items-start mt-2 ml-3 ">
+        <ul className="menu bg-base-200 rounded-box w-60">
+          <li>
+            <div className="flex flex-row justify-between">
+              {Category?.map((category) => {
+                return <h1> {category.name}</h1>;
+              })}
+              {/* <p>{categories.category.name}</p>
+              <img
+                src={categories.category.image}
+                className="h-12 w-12 rounded-full"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              /> */}
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-    // <div>
-    //   <div className="flex justify-start items-start mt-2 ml-3 ">
-    //     <ul className="menu bg-base-200 rounded-box w-60">
-    //       <li>
-    //         <div className="flex flex-row justify-between">
-    //           {Category?.map((category) => {
-    //             return <h1> {category.name}</h1>;
-    //           })}
-    //           {/* <p>{categories.category.name}</p>
-    //           <img
-    //             src={categories.category.image}
-    //             className="h-12 w-12 rounded-full"
-    //             fill="none"
-    //             viewBox="0 0 24 24"
-    //             stroke="currentColor"
-    //           /> */}
-    //         </div>
-    //       </li>
-    //     </ul>
-    //   </div>
-    // </div>
   );
 };
 
