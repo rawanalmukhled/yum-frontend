@@ -1,5 +1,4 @@
 import React from "react";
-import Search from "./Search";
 import RecipeCard from "./RecipeCard";
 import { Link } from "react-router-dom";
 import Category from "./Category";

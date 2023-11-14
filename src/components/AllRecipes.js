@@ -1,24 +1,70 @@
-import React from "react";
+import React, { useState, useSyncExternalStore } from "react";
+import RecipeCard from "./RecipeCard";
+import Modal from "./Modal";
+import { getAllRecipes } from "../api/auth";
+import { useEffect } from "react";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 const AllRecipes = () => {
+  const [query, setQuery] = useState("");
+  const [showModal, setShowModal] = useState(false);
+
+  const { data: recipes, isLoading } = useQuery({
+    queryKey: ["recipes"],
+    queryFn: () => getAllRecipes(),
+  });
+  if (isLoading) return <h1>loading...</h1>;
+
+  const recipesList = recipes
+    .filter((recipe) => {
+      return recipe.name
+        .toLocaleLowerCase()
+        .includes(query.toLocaleLowerCase());
+    })
+    .filter((recipe) => {
+      return recipe.type.toLocaleLowerCase().includes(type.toLocaleLowerCase());
+    })
+    .map((recipe) => <RecipeCard recipe={recipe} key={recipe._id} />);
+
   return (
     <div>
-      <div className="card w-96 bg-base-100 shadow-xl">
-        <figure className="px-10 pt-10">
-          <img
-            src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-            alt="Shoes"
-            className="rounded-xl"
-          />
-        </figure>
-        <div className="card-body items-center text-center">
-          <h2 className="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div className="card-actions">
-            <button className="btn btn-primary">Buy Now</button>
+      <section id="doctors" className="doctor-section pt-140">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-xxl-5 col-xl-6 col-lg-7">
+              <div className="section-title text-center mb-30">
+                <div className="input-group rounded">
+                  <input
+                    type="search"
+                    className="form-control rounded"
+                    placeholder="Search"
+                    onChange={(e) => setQuery(e.target.value)}
+                    aria-label="Search"
+                    aria-describedby="search-addon"
+                  />
+                  <br />
+                  Find a Recipe :
+                  <select
+                    className="form-select"
+                    onChange={(e) => {
+                      setType(e.target.value);
+                    }}
+                  >
+                    <option value="" selected>
+                      All
+                    </option>
+                    <option value="ingredient">ingredient</option>
+                    <option value="category">category</option>
+                    <option value="user">chef name</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div className="row justify-content-center">{recipesList}</div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
