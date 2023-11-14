@@ -1,14 +1,14 @@
 import { useMutation } from "@tanstack/react-query";
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { login } from "../api/auth";
-// import UserContext from "../../context/UserContext";
-import { useContext } from "react";
+// import UserContext from "../context/UserContext";
+// import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Logining = () => {
   const [userInfo, setUserInfo] = useState("");
-  //  const { user, setUser } = useContext(UserContext);
+  // const { user, setUser } = useContext();
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -20,8 +20,7 @@ const Logining = () => {
     mutationFn: () => login(userInfo),
     // onSuccess: () => {
     //   setUser(true);
-    //   navigate("/main");
-    // },
+    //   navigate("/");
   });
   return (
     <div className=" h-screen w-screen flex justify-center items-center bg-base-100">
@@ -30,7 +29,7 @@ const Logining = () => {
         <div>
           <h1 className="  text-[16px] font-bold">Username: </h1>
           <input
-            name="Username"
+            name="username"
             onChange={handleChange}
             placeholder="Username"
             className="input input-bordered w-[500px] h-[50px] "
@@ -55,4 +54,4 @@ const Logining = () => {
   );
 };
 
-export default Logining;
+export default Login;

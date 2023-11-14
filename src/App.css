@@ -2,13 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* <style>
+/* 
+<style>
   @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 </style>
 
-font-family: 'Pacifico', cursive; */
+font-family: 'Pacifico', cursive; /
 
-/* <style>
+/ <style>
   @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
 </style>
 font-family: 'Fugaz One', sans-serif; */

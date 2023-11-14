@@ -1,7 +1,6 @@
 import React from "react";
 
 import { Input, Button } from "daisyui";
-import Search from "./Search";
 import RecipeCard from "./RecipeCard";
 import Category from "./Category";
 
@@ -12,9 +11,7 @@ const Main = () => {
         <Category />
       </div>
       <div className="flex flex-col items-center w-full">
-        <div className="flex justify-center items-center  h-[400px] w-[700px] ">
-          <Search />
-        </div>
+        <div className="flex justify-center items-center  h-[400px] w-[700px] "></div>
         <div>
           <RecipeCard />
         </div>

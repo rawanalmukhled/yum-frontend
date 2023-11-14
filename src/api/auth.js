@@ -2,10 +2,7 @@ import instance from ".";
 import { jwtDecode } from "jwt-decode";
 
 const login = async (userInfo) => {
-  const { data } = await instance.post(
-    "/mini-project/api/auth/login",
-    userInfo
-  );
+  const { data } = await instance.post("/signin", userInfo);
 
   storeToken(data?.token);
   return data;
@@ -35,66 +32,83 @@ const checkToken = () => {
 
 const register = async (userInfo) => {
   const formData = new FormData();
-  for (const key in userInfo) formData.append(key, userInfo[key]);
+  for (let key in userInfo) formData.append(key, userInfo[key]);
 
-  const { data } = await instance.post(
-    "/mini-project/api/auth/register",
-    formData
-  );
+  const { data } = await instance.post("/signup", formData);
   storeToken(data?.token);
   return data;
 };
 
 const getAllUsers = async () => {
-  const { data } = await instance.get("/mini-project/api/auth/users");
+  const { data } = await instance.get("/chefs");
   return data;
 };
 
-const getTransactions = async () => {
-  const { data } = await instance.get("/mini-project/api/transactions/my");
+const getAllRecipes = async () => {
+  const { data } = await instance.get("/recipes/");
   return data;
 };
 
-const depositToAccount = async (amount) => {
-  const res = await instance.put(`/mini-project/api/transactions/deposit`, {
-    amount: amount,
-  });
-  return res.data;
-};
-
-const withdrawFromAccount = async (amount) => {
-  const res = await instance.put(`/mini-project/api/transactions/withdraw`, {
-    amount: amount,
-  });
-  return res.data;
-};
-
-const transferToAnotherUser = async (amount, username) => {
-  const res = await instance.put(
-    `/mini-project/api/transactions/transfer/${username}`,
-    {
-      amount: amount,
-      username: username,
-    }
-  );
-  return res.data;
-};
-
-const getUserInfoByUserId = async (userId) => {
-  const { data } = await instance.get(`/mini-project/api/auth/user/${userId}`);
+const getAllCategories = async () => {
+  const { data } = await instance.get("/categories/");
   return data;
 };
 
-const getYourProfile = async () => {
-  const { data } = await instance.get("/mini-project/api/auth/me");
-  return data;
-};
+// const addRecipetocategory = async (category, recipeID) => {
+//   const res = await instance.put(
+//     `/yum-project/api/category/addrecipe/${recipeID}`,
+//     {
+//       //does the backend function do the all work and pusing or no ?
+//       recipes: recipes,
+//     }
+//   );
+//   return res.data;
+// };
 
-const updateYourProfile = async (image) => {
-  const res = await instance.put(`/mini-project/api/auth/profile`, {
-    image: image,
-  });
-  return res.data;
-};
+// const getUserInfoByUserId = async (userId) => {
+//   const { data } = await instance.get(`/yum-project/api/auth/user/${userId}`);
+//   return data;
+// };
 
-export { checkToken, storeToken, login, logout, getAllUsers, register };
+// const getYourProfile = async () => {
+//   const { data } = await instance.get("/yum-project/api/auth/me");
+//   return data;
+// };
+
+// const updateYourProfile = async (image) => {
+//   const res = await instance.put(`/yum-project/api/auth/profile`, {
+//     image: image,
+//   });
+//   return res.data;
+// };
+
+// //updateYourRecipe
+// const addnewIngredient = async (newing) => {
+//   const res = await instance.put(`/yum-project/api/auth/ingredientlist`, {
+//     ingredientname: ingredientname,
+//   });
+//   return res.data;
+// };
+
+// // getRecipeInfoByRecipeName
+// // getallRecipesByRecipecategory
+// // getallRecipesByRecipeingredient
+// //addnewCategory
+
+export {
+  checkToken,
+  login,
+  logout,
+  getAllUsers, //get all chefs
+  register,
+  // getYourProfile,
+  //getUserInfoByUserId, //browes user profile and recipes
+  // updateYourProfile,
+  // updateYourRecipe,
+  //  getallMyrecipes,
+  // addRecipetocategory,
+  getAllCategories,
+  // getRecipeInfoByRecipeId,
+  getAllRecipes,
+  // addnewIngredient,
+};
