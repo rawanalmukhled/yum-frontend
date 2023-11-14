@@ -3,6 +3,7 @@ import React from "react";
 import { Input, Button } from "daisyui";
 import RecipeCard from "./RecipeCard";
 import Category from "./Category";
+import AllRecipes from "./AllRecipes";
 
 const Main = () => {
   return (
@@ -13,7 +14,7 @@ const Main = () => {
       <div className="flex flex-col items-center w-full">
         <div className="flex justify-center items-center  h-[400px] w-[700px] "></div>
         <div>
-          <RecipeCard />
+          <AllRecipes />
         </div>
       </div>
     </div>
