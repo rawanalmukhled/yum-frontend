@@ -59,6 +59,11 @@ const AddRecipe = () => {
     },
   });
 
+  //// get all categories
+  //// needs use quries to gett all then filter
+  // const categorylist =
+  /// get all ingredients
+
   return (
     <div className=" h-screen w-screen flex justify-center items-center bg-base-100">
       <div className=" gap-3  w-[50%] h-[80%] flex flex-col justify-center items-center bg-base-200 rounded-md ">

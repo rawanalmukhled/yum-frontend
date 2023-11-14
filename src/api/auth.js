@@ -97,17 +97,4 @@ const updateYourProfile = async (image) => {
   return res.data;
 };
 
-export {
-  checkToken,
-  login,
-  logout,
-  getAllUsers,
-  register,
-  getYourProfile,
-  getUserInfoByUserId,
-  transferToAnotherUser,
-  withdrawFromAccount,
-  updateYourProfile,
-  depositToAccount,
-  getTransactions,
-};
+export { checkToken, storeToken, login, logout, getAllUsers, register };

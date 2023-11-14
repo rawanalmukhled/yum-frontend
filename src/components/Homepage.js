@@ -12,7 +12,7 @@ const Home = () => {
           <button className="btn btn-glass px-9  ">Login</button>
         </Link>
         <Link to={"/Register"}>
-          <button className="btn  bg-amber-700 px-9">Register</button>
+          <button className="btn  bg-amber-700 px-9 ">Register</button>
         </Link>
       </div>
     </div>

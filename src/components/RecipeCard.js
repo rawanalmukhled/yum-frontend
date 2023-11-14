@@ -16,7 +16,9 @@ const RecipeCard = (Recipe) => {
           <h2 className="card-title"> {Recipe.name}</h2>
           <p>Owner Name</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">VIEW</button>
+            <link to={"/ViewRecipe"}>
+              <button className="btn btn-primary">VIEW</button>
+            </link>
           </div>
         </div>
       </div>
