@@ -21,20 +21,20 @@ function App() {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
-      <div className="w-screen h-screen ">
+    <div className="w-screen h-screen ">
+      <UserContext.Provider value={{ user, setUser }}>
         <img className="fixed z-[-1]" src={backGroundImage} />
         <Navbar />
         {/* <Carousel /> */}
-
-      <Routes>
-        <Route path="/" Component={Home} />
-        <Route path="/Login" Component={Login} />
-        <Route path="/Register" Component={Register} />
-        <Route path="/Main" Component={Main} />
-        <Route path="/MyRecipes" Component={MyRecipes} />
-        <Route path="/CreateRecipe" Component={CreateRecipe} />
-      </Routes>
+        <Routes>
+          <Route path="/" Component={Home} />
+          <Route path="/Login" Component={Login} />
+          <Route path="/Register" Component={Register} />
+          <Route path="/Main" Component={Main} />
+          <Route path="/MyRecipes" Component={MyRecipes} />
+          <Route path="/CreateRecipe" Component={CreateRecipe} />
+        </Routes>
+      </UserContext.Provider>
     </div>
   );
 }
