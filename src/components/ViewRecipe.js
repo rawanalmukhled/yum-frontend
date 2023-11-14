@@ -1,28 +1,37 @@
-import React from "react";
+import { useQuery } from "@tanstack/react-query";
+import React, { useState } from "react";
+import { getAllRecipes } from "../api/auth";
 
 const ViewRecipe = () => {
-  return (
-    <div>
-      <div className="card card-side bg-base-100 shadow-xl">
-        <figure>
-          <img
-            src="/images/stock/photo-1635805737707-575885ab0820.jpg"
-            alt="Movie"
-          />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">RECIPE NAME </h2>
-          <p>CHEF: OWNER NAME</p>
-          <p>CATEGORY : CATEGORY</p>
-          <p>INGREDIANETS : LIST OF ING</p>
-          <p>INSTRUCTIONS: LIST OF INS</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">BACK</button>
+  const [query, setQuery] = useState("");
+  const [type, setType] = useState("");
+
+  const { data: recipes, isLoading } = useQuery({
+    queryKey: ["recipes"],
+    queryFn: () => getAllRecipes(),
+  });
+  if (isLoading) return <h1>loading...</h1>;
+  recipes?.map((recipe) => {
+    return (
+      <div>
+        <div className="card card-side bg-base-100 shadow-xl">
+          <figure>
+            <img src={recipe.recipeimage} alt="" />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">{recipe.name}</h2>
+            <p>{recipe.user.username}</p>
+            <p>{recipe.category}</p>
+            <p>{recipe.ingredients}</p>
+            <p> {recipe.instructions}</p>
+            <div className="card-actions justify-end">
+              <button className="btn btn-primary">BACK</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  });
 };
 
 export default ViewRecipe;

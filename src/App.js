@@ -13,6 +13,7 @@ import CreateRecipe from "./components/CreateRecipe";
 import backGroundImage from "./assest/Banner1.svg";
 import Home from "./components/Homepage";
 import Register from "./components/Register";
+import ViewRecipe from "./components/ViewRecipe";
 function App() {
   const [user, setUser] = useState({});
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/Main" Component={Main} />
           <Route path="/MyRecipes" Component={MyRecipes} />
           <Route path="/CreateRecipe" Component={CreateRecipe} />
+          <Route path="/ViewRecipe" Component={ViewRecipe} />
         </Routes>
       </UserContext.Provider>
     </div>
