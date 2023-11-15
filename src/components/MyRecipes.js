@@ -2,8 +2,18 @@ import React from "react";
 import RecipeCard from "./RecipeCard";
 import { Link } from "react-router-dom";
 import Category from "./Category";
+import { useQuery } from "@tanstack/react-query";
+import { getallMyrecipes } from "../api/auth";
 
 const MyRecipes = () => {
+  const { data } = useQuery({
+    queryKey: ["recipes"],
+    queryFn: () => getallMyrecipes(),
+  });
+
+  const myRecipeList = data?.map((recipe) => {
+    return <RecipeCard recipe={recipe} />;
+  });
   return (
     <div className="flex flex-row">
       <div>
@@ -20,9 +30,7 @@ const MyRecipes = () => {
             <button className="btn glass mt-2 mr-4 ">Create your own</button>
           </Link>
         </div>
-        <div>
-          <RecipeCard />
-        </div>
+        <div>{myRecipeList}</div>
       </div>
     </div>
   );
