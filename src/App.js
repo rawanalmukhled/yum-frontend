@@ -27,9 +27,10 @@ function App() {
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      <div className="w-screen h-screen ">
-        <img className="fixed z-[-1]" src={backGroundImage} />
+      <div className="max-w-screen h-screen mt-[64px]  ">
         <Navbar />
+        {/* <img className="fixed z-[-1]" src={backGroundImage} /> */}
+
         {/* <Carousel /> */}
 
         <Routes>

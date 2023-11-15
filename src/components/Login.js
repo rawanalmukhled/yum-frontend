@@ -47,7 +47,7 @@ const Login = () => {
           />
         </div>
 
-        <button onClick={() => mutate()} className="btn glass mt-2 mr-4 ">
+        <button onClick={() => mutate()} className="btn glass ">
           Login
         </button>
       </div>

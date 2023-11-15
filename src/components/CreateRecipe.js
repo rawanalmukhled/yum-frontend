@@ -90,7 +90,7 @@ const AddRecipe = () => {
           name="recipeimage"
           className="file-input file-input-bordered w-[500px] h-[50px]"
         />
-        <button onClick={mutate} className="btn glass mt-2 mr-4 ">
+        <button onClick={mutate} className="btn glass ">
           Add
         </button>
       </div>

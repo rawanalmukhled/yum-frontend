@@ -62,7 +62,7 @@ const Register = () => {
           />
         </div>
 
-        <button onClick={handleSubmit} className="btn glass mt-2 mr-4 ">
+        <button onClick={handleSubmit} className="btn glass ">
           Register
         </button>
       </div>

@@ -15,7 +15,7 @@ const MyRecipes = () => {
     return <RecipeCard recipe={recipe} />;
   });
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row h-screen max-w-screen">
       <div>
         <Category />
       </div>
@@ -27,10 +27,12 @@ const MyRecipes = () => {
             className="btn glass input input-bordered w-24 md:w-auto ml-4"
           />
           <Link to={"/CreateRecipe"}>
-            <button className="btn glass mt-2 mr-4 ">Create your own</button>
+            <button className="btn glass  ">Create your own</button>
           </Link>
         </div>
-        <div>{myRecipeList}</div>
+        <div className="flex justify-center items-center gap-10 flex-wrap">
+          {myRecipeList}
+        </div>
       </div>
     </div>
   );

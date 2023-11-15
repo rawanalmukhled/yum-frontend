@@ -3,7 +3,7 @@ import React from "react";
 const CategoryBtn = (category) => {
   console.log(category.category.name);
   return (
-    <div className="flex justify-start items-start mt-2 ml-3 ">
+    <div className="flex justify-start items-start ">
       <ul className="menu bg-base-200 rounded-box w-60">
         <li>
           <div className="flex flex-row justify-between">

@@ -40,7 +40,7 @@ const AllRecipes = () => {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-xxl-5 col-xl-6 col-lg-7">
-            <div className="section-title text-center mb-30">
+            <div className="section-title text-center ">
               <div className="input-group rounded">
                 <input
                   type="search"
@@ -68,7 +68,9 @@ const AllRecipes = () => {
             </div>
           </div>
 
-          <div className="row justify-content-center">{recipesList}</div>
+          <div className="flex justify-center items-center gap-10 flex-wrap">
+            {recipesList}
+          </div>
         </div>
       </div>
     </section>
