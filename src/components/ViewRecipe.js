@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { getAllRecipes } from "../api/auth";
 
-const ViewRecipe = () => {
+const ViewRecipe = ({ recipe }) => {
   const [query, setQuery] = useState("");
   const [type, setType] = useState("");
 
@@ -20,7 +20,7 @@ const ViewRecipe = () => {
           </figure>
           <div className="card-body">
             <h2 className="card-title">{recipe.name}</h2>
-            <p>{recipe.user.username}</p>
+            <p>{recipe.username}</p>
             <p>{recipe.category}</p>
             <p>{recipe.ingredients}</p>
             <p> {recipe.instructions}</p>
