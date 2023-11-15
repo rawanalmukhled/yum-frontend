@@ -5,9 +5,9 @@ const Home = () => {
   // add button <loginig> <register>
 
   return (
-    <div className="w-screen h-screen ">
-      <img className="relative" src={homepageimage} />
-      <div className="absolute top-[630px] left-[320px] flex gap-5 m-2 z-[1]">
+    <div className="w-screen h-screen relative">
+      <img className="md:absolute md:top-[-10rem]" src={homepageimage} />
+      <div className="md:absolute md:top-96 left-[320px] flex gap-5 m-2 z-[1]">
         <Link to={"/Login"}>
           <button className="btn btn-glass px-9  ">Login</button>
         </Link>

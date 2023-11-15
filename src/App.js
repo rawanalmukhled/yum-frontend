@@ -16,6 +16,7 @@ import Register from "./components/Register";
 
 import ViewRecipe from "./components/ViewRecipe";
 import Chefs from "./components/Chefs";
+import Carousel from "./components/Carousel";
 
 function App() {
   const [user, setUser] = useState({});
