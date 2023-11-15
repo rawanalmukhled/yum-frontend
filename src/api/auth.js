@@ -75,10 +75,10 @@ const getAllCategories = async () => {
 //   return data;
 // };
 
-// const getallMyrecipes = async () => {
-//   const { data } = await instance.get("/api/auth/me");
-//   return data;
-// };
+const getallMyrecipes = async () => {
+  const { data } = await instance.get("/recipes/my-recipes");
+  return data;
+};
 
 // const updateYourProfile = async (image) => {
 //   const res = await instance.put(`/yum-project/api/auth/profile`, {
@@ -110,10 +110,11 @@ export {
   //getUserInfoByUserId, //browes user profile and recipes
   // updateYourProfile,
   // updateYourRecipe,
-  // getallMyrecipes,
+  getallMyrecipes,
   // addRecipetocategory,
   getAllCategories,
   // getRecipeInfoByRecipeId,
   getAllRecipes,
+  //createnewRecipe,
   // addnewIngredient,
 };

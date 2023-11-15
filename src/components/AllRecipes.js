@@ -62,9 +62,6 @@ const AllRecipes = () => {
                     All
                   </option>
                   {categorySelectOptions}
-                  {/* <option value="ingredient">ingredient</option>
-                  <option value="category">category</option>
-                  <option value="user">chef name</option> */}
                 </select>
               </div>
             </div>
