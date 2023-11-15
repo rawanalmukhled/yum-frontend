@@ -1,6 +1,6 @@
 import React, { useState, useSyncExternalStore } from "react";
 import RecipeCard from "./RecipeCard";
-import { getAllRecipes } from "../api/auth";
+import { getAllCategories, getAllRecipes } from "../api/auth";
 import { useEffect } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
@@ -13,21 +13,28 @@ const AllRecipes = () => {
     queryKey: ["recipes"],
     queryFn: () => getAllRecipes(),
   });
-  if (isLoading) return <h1>loading...</h1>;
+  const { data: categories, isLoading: categoryLoading } = useQuery({
+    queryKey: ["categories"],
+    queryFn: () => getAllCategories(),
+  });
+  if (isLoading || categoryLoading) return <h1>loading...</h1>;
 
-  // const recipesList = recipes
-  //   .filter((recipe) => {
-  //     return recipe.name
-  //       .toLocaleLowerCase()
-  //       .includes(query.toLocaleLowerCase());
-  //   })
-  //   .filter((recipe) => {
-  //     return recipe.type.toLocaleLowerCase().includes(type.toLocaleLowerCase());
-  //   })
-  //   .map((recipe) => <RecipeCard recipe={recipe} key={recipe._id} />);
-  const recipesList = recipes.map((recipe) => (
-    <RecipeCard recipe={recipe} key={recipe._id} />
-  ));
+  const recipesList = recipes
+    ?.filter((recipe) => {
+      return recipe.name
+        .toLocaleLowerCase()
+        .includes(query.toLocaleLowerCase());
+    })
+    ?.filter((recipe) => {
+      return recipe.category?.name
+        .toLocaleLowerCase()
+        .includes(type.toLocaleLowerCase());
+    })
+    ?.map((recipe) => <RecipeCard recipe={recipe} key={recipe._id} />);
+
+  const categorySelectOptions = categories?.map((category) => {
+    return <option value={category.name}>{category.name}</option>;
+  });
   return (
     <section id="doctors" className="doctor-section pt-140">
       <div className="container">
@@ -54,9 +61,10 @@ const AllRecipes = () => {
                   <option value="" selected>
                     All
                   </option>
-                  <option value="ingredient">ingredient</option>
+                  {categorySelectOptions}
+                  {/* <option value="ingredient">ingredient</option>
                   <option value="category">category</option>
-                  <option value="user">chef name</option>
+                  <option value="user">chef name</option> */}
                 </select>
               </div>
             </div>
