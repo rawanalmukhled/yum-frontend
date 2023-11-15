@@ -38,8 +38,8 @@ const AllRecipes = () => {
   return (
     <section id="doctors" className="doctor-section pt-140">
       <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-xxl-5 col-xl-6 col-lg-7">
+        <div className="flex flex-col gap-5 justify-content-center">
+          <div className="flex justify-center items-center">
             <div className="section-title text-center ">
               <div className="input-group rounded">
                 <input
