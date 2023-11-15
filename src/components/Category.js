@@ -18,7 +18,7 @@ const Category = () => {
 
   console.log(categoriesList);
 
-  return <div>{categoriesList}</div>;
+  return <div className="flex flex-col gap-3">{categoriesList}</div>;
 };
 
 export default Category;

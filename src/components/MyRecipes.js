@@ -19,8 +19,8 @@ const MyRecipes = () => {
       <div>
         <Category />
       </div>
-      <div className="flex flex-col items-center w-full ">
-        <div className="flex items-end justify-between w-full text-black ">
+      <div className="flex flex-col items-center w-full gap-5 h-full  ">
+        <div className="flex items-end justify-center gap-5 w-full text-black  ">
           <input
             type="text"
             placeholder="Search "
