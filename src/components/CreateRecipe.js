@@ -1,37 +1,6 @@
-// import React from "react";
-// import { Link } from "react-router-dom";
-
-// const CreateRecipe = () => {
-//   return (
-//     <div className="flex justify-center items-center flex-col gap-5 bg-slate-600 w-full h-[500px]">
-//       <label>
-//         Name:
-//         <input type="text" name="name" />
-//       </label>
-//       <label>
-//         Category:
-//         <input type="text" name="name" />
-//       </label>
-//       <label>
-//         Ingrediants:
-//         <input type="text" name="name" />
-//       </label>
-//       <label className="flex flex-row gap-2">
-//         Instructions:
-//         <textarea
-//           placeholder="Bio"
-//           className="textarea textarea-bordered textarea-lg w-full max-w-xs"
-//         ></textarea>
-//       </label>
-//       <Link to={"/MyRecipes"}>
-//         <button className="btn glass mt-2 mr-4 ">Create your own</button>
-//       </Link>
-//     </div>
-//   );
-// };
-
-// export default CreateRecipe;
-
+import { getAllCategories } from "../api/auth";
+import { useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 import {
   QueryClient,
   useMutation,
@@ -40,29 +9,42 @@ import {
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CreateOneRecipe } from "../api/recipe";
+import Category from "./Category";
 
 const AddRecipe = () => {
-  const [recipeInfo, setRecipeInfo] = useState("");
+  const [recipeInfo, setRecipeInfo] = useState({});
   const navigate = useNavigate();
-  const queryClient = useQueryClient();
 
   const handleChange = (e) => {
-    setRecipeInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    if (e.target.name === "recipeimage") {
+      setRecipeInfo({ ...recipeInfo, [e.target.name]: e.target.files[0] });
+    } else {
+      setRecipeInfo({ ...recipeInfo, [e.target.name]: e.target.value });
+    }
   };
+
+  const queryClient = useQueryClient();
+  const [type, setType] = useState("");
+
+  const { data: categories, isLoading: categoryLoading } = useQuery({
+    queryKey: ["categories"],
+    queryFn: () => getAllCategories(),
+  });
 
   const { mutate } = useMutation({
     mutationKey: ["AddRecipe"],
-    mutationFn: () => CreateOneRecipe(recipeInfo),
+    mutationFn: () => CreateOneRecipe({ ...recipeInfo, category: type }),
     onSuccess: () => {
-      navigate("MyRecipes");
+      navigate("/myRecipes");
       queryClient.invalidateQueries("recipes");
     },
   });
 
-  //// get all categories
-  //// needs use quries to gett all then filter
-  // const categorylist =
-  /// get all ingredients
+  if (categoryLoading) return <h1>loading...</h1>;
+
+  const categorySelectOptions = categories?.map((category) => {
+    return <option value={category._id}>{category.name}</option>;
+  });
 
   return (
     <div className=" h-screen w-screen flex justify-center items-center bg-base-100">
@@ -70,23 +52,23 @@ const AddRecipe = () => {
         <h1 className="  text-[35px] font-bold">LOOKS DELICIOUS </h1>
 
         <input
-          name="recipe"
+          name="name"
           onChange={handleChange}
           placeholder="Recipe name"
           className="input input-bordered w-[500px] h-[50px] "
         />
-        <input
-          name="owener"
-          onChange={handleChange}
-          placeholder="Owner name"
-          className="input input-bordered w-[500px] h-[50px] "
-        />
-        <input
-          name="category"
-          onChange={handleChange}
-          placeholder="Category"
-          className="input input-bordered w-[500px] h-[50px] "
-        />
+
+        <select
+          className="form-select"
+          onChange={(e) => {
+            setType(e.target.value);
+          }}
+        >
+          <option value="" selected>
+            All
+          </option>
+          {categorySelectOptions}
+        </select>
         <input
           name="ingredients"
           onChange={handleChange}
@@ -96,15 +78,19 @@ const AddRecipe = () => {
 
         <label className="flex flex-row gap-2">
           <textarea
+            name="instructions"
+            onChange={handleChange}
             placeholder="Instructions"
             className="textarea textarea-bordered textarea-lg w-[500px] h-[100px]"
           ></textarea>
         </label>
         <input
           type="file"
+          onChange={handleChange}
+          name="recipeimage"
           className="file-input file-input-bordered w-[500px] h-[50px]"
         />
-        <button onClick={() => mutate()} className="btn glass mt-2 mr-4 ">
+        <button onClick={mutate} className="btn glass ">
           Add
         </button>
       </div>

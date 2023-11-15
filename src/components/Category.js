@@ -13,7 +13,10 @@ const Category = () => {
   const categoriesList = categories.map((category) => (
     <CategoryBtn category={category} key={category.name} />
   ));
-  return <div>{categoriesList}</div>;
+
+  console.log(categoriesList);
+
+  return <div className="flex flex-col gap-3">{categoriesList}</div>;
 };
 
 export default Category;
