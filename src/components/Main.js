@@ -7,8 +7,8 @@ import AllRecipes from "./AllRecipes";
 
 const Main = () => {
   return (
-    <div className="flex flex-row back">
-      <div>
+    <div className="flex flex-row back relative">
+      <div className="md:absolute top-32">
         <Category />
       </div>
       <div className="flex flex-col items-center w-full">

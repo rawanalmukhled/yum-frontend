@@ -44,12 +44,13 @@ const AllRecipes = () => {
               <div className="input-group rounded">
                 <input
                   type="search"
-                  className="form-control rounded"
+                  className="form-control input input-bordered input-error w-full max-w-xs"
                   placeholder="Search"
                   onChange={(e) => setQuery(e.target.value)}
                   aria-label="Search"
                   aria-describedby="search-addon"
                 />
+                {/* <input type="text" placeholder="Type here" className="" /> */}
                 <br />
                 Find a Recipe :
                 <select
