@@ -1,14 +1,14 @@
 import { useMutation } from "@tanstack/react-query";
 import React from "react";
 import { useState } from "react";
-import { login } from "../api/auth";
-// import UserContext from "../context/UserContext";
-// import { useContext } from "react";
+import { register } from "../api/auth";
+import UserContext from "../context/UserContext";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [userInfo, setUserInfo] = useState("");
-  //   const { user, setUser } = useContext();
+  const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -25,11 +25,12 @@ const Register = () => {
   };
 
   const { mutate } = useMutation({
-    mutationKey: ["login"],
-    mutationFn: () => login(userInfo),
-    // onSuccess: () => {
-    //   setUser(true);
-    //   navigate("/");
+    mutationKey: ["register"],
+    mutationFn: () => register(userInfo),
+    onSuccess: () => {
+      setUser(true);
+      navigate("/main");
+    },
   });
   return (
     <div className=" h-screen w-screen flex justify-center items-center bg-base-100">

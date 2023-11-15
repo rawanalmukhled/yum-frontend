@@ -19,18 +19,19 @@ const AllRecipes = () => {
   });
   if (isLoading || categoryLoading) return <h1>loading...</h1>;
 
-  const recipesList = recipes
-    ?.filter((recipe) => {
-      return recipe.name
-        .toLocaleLowerCase()
-        .includes(query.toLocaleLowerCase());
-    })
-    ?.filter((recipe) => {
-      return recipe.category?.name
-        .toLocaleLowerCase()
-        .includes(type.toLocaleLowerCase());
-    })
-    ?.map((recipe) => <RecipeCard recipe={recipe} key={recipe._id} />);
+  const recipesList = recipes.map((recipe) => (
+    <RecipeCard recipe={recipe} key={recipe._id} />
+  ));
+  // ?.filter((recipe) => {
+  //   return recipe.name
+  //     .toLocaleLowerCase()
+  //     .includes(query.toLocaleLowerCase());
+  // })
+  // ?.filter((recipe) => {
+  //   return recipe.category?.name
+  //     .toLocaleLowerCase()
+  //     .includes(type.toLocaleLowerCase());
+  // })
 
   const categorySelectOptions = categories?.map((category) => {
     return <option value={category.name}>{category.name}</option>;

@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const ViewRecipeCard = ({ recipe }) => {
   return (
@@ -13,9 +14,11 @@ const ViewRecipeCard = ({ recipe }) => {
           <p>{recipe.category}</p>
           <p>{recipe.ingredients}</p>
           <p> {recipe.instructions}</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">BACK</button>
-          </div>
+          <NavLink to={"/main"}>
+            <div className="card-actions justify-end">
+              <button className="btn btn-primary">BACK</button>
+            </div>
+          </NavLink>
         </div>
       </div>
     </div>

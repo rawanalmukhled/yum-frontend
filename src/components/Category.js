@@ -1,7 +1,7 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { getAllCategories } from "../api/auth";
-import CategoryBtn from "./CategoryBtn";
+import CategoryButton from "./CategoryButton";
 
 const Category = () => {
   const queryClient = useQueryClient();
@@ -11,7 +11,7 @@ const Category = () => {
   });
   if (isLoading) return <h1>loading...</h1>;
   const categoriesList = categories.map((category) => (
-    <CategoryBtn category={category} key={category.name} />
+    <CategoryButton category={category} key={category.name} />
   ));
 
   console.log(categoriesList);

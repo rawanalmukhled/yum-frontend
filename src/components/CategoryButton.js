@@ -1,6 +1,6 @@
 import React from "react";
 
-const CategoryBtn = (category) => {
+const CategoryButton = (category) => {
   console.log(category.category.name);
   return (
     <div className="flex justify-start items-start ">
@@ -22,4 +22,4 @@ const CategoryBtn = (category) => {
   );
 };
 
-export default CategoryBtn;
+export default CategoryButton;
