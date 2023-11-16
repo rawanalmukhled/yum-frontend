@@ -43,15 +43,19 @@ const AllRecipes = () => {
           <div className="flex justify-center items-center">
             <div className="section-title text-center ">
               <div className="input-group rounded">
-                <div className="flex flex-col">
-                  <div>
-                    <h1> FIND YOUR RECIPE </h1>
+                <div className="flex flex-col mt-2 w-[850px] h-[200px]  justify-center items-center">
+                  <img
+                    className="fixed z-[-1] w-[850px] h-[200px]"
+                    src={require("../assest/488-4886331_pinch-of-yum-logo-hd-png-download.jpg")}
+                  />
+                  <div className=" text-amber-950 text-[35px] font-semibold">
+                    FIND A RECIPE ?
                   </div>
                   <div className="mt-2">
                     <input
                       type="text"
                       placeholder="Search "
-                      className="btn glass input input-bordered w-24 md:w-auto ml-4"
+                      className="btn glass input input-bordered w-[400px] ml-4"
                       onChange={(e) => setQuery(e.target.value)}
                     />
 
