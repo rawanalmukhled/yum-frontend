@@ -31,10 +31,11 @@ function App() {
         {/* <Navbar /> */}
 
         <Routes>
+          <Route path="/Main" Component={Main} />
           <Route path="/" Component={Home} />
           <Route path="/Login" Component={Login} />
           <Route path="/Register" Component={Register} />
-          <Route path="/Main" Component={Main} />
+
           <Route path="/MyRecipes" Component={MyRecipes} />
           <Route path="/CreateRecipe" Component={CreateRecipe} />
           <Route path="/ViewRecipe" Component={ViewRecipe} />

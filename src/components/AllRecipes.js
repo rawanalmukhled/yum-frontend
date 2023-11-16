@@ -66,9 +66,9 @@ const AllRecipes = () => {
                   {categorySelectOptions}
                 </select>
               </div>
-              <div>
+              {/* <div>
                 <AllRecipes />
-              </div>
+              </div> */}
             </div>
           </div>
 
