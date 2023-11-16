@@ -1,20 +1,24 @@
 import React from "react";
 
-import { Input, Button } from "daisyui";
-import RecipeCard from "./RecipeCard";
 import Category from "./Category";
 import AllRecipes from "./AllRecipes";
-import MyRecipes from "./MyRecipes";
+
+import Navbar from "./Navbar";
 
 const Main = () => {
   return (
     <div className="flex flex-row back relative w-full h-full">
-      <div className="">
-        <Category />
-      </div>
-      <div className="flex flex-col items-center w-full h-full">
-        <div className="w-full h-full ">
-          <AllRecipes />
+      <div className="flex flex-col ">
+        <div>
+          <Navbar />
+        </div>
+        <div className="flex flex-row">
+          <div className="">
+            <Category />
+          </div>
+          <div className="">
+            <AllRecipes />
+          </div>
         </div>
       </div>
     </div>

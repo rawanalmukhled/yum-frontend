@@ -43,6 +43,7 @@ const AllRecipes = () => {
           <div className="flex justify-center items-center">
             <div className="section-title text-center ">
               <div className="input-group rounded">
+                <h1> hellox</h1>{" "}
                 <input
                   type="search"
                   className="form-control input input-bordered input-error w-full max-w-xs"
@@ -53,7 +54,6 @@ const AllRecipes = () => {
                 />
                 {/* <input type="text" placeholder="Type here" className="" /> */}
                 <br />
-                Find a Recipe :
                 <select
                   className="form-select"
                   onChange={(e) => {
@@ -65,6 +65,9 @@ const AllRecipes = () => {
                   </option>
                   {categorySelectOptions}
                 </select>
+              </div>
+              <div>
+                <AllRecipes />
               </div>
             </div>
           </div>

@@ -5,9 +5,18 @@ const Home = () => {
   // add button <loginig> <register>
 
   return (
-    <div className="w-screen h-screen relative">
+    <div className="w-full h-full relative overflow-hidden">
       <img className="md:absolute md:top-[-10rem]" src={homepageimage} />
-      <div className="md:absolute md:top-96 left-[320px] flex gap-5  z-[1]">
+      <div className=" w-full flex justify-center items-center  mt-2 ">
+        <img
+          src={require("../assest/Pinch-of-Yum-Logo.png")}
+          style={{
+            height: 100,
+            width: 700,
+          }}
+        />
+      </div>
+      <div className="md:absolute md:top-96 left-[320px] flex gap-5  z-[1] ">
         <Link to={"/Login"}>
           <button className="btn btn-glass px-9  ">Login</button>
         </Link>

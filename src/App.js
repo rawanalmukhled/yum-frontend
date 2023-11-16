@@ -14,8 +14,6 @@ import backGroundImage from "./assest/Banner1.svg";
 import Home from "./components/Homepage";
 import Register from "./components/Register";
 import ViewRecipe from "./components/ViewRecipe";
-import Chefs from "./components/Chefs";
-import Carousel from "./components/Carousel";
 
 function App() {
   const [user, setUser] = useState({});
@@ -25,16 +23,15 @@ function App() {
   }, []);
 
   return (
-    <div className="max-w-screen h-screen mt-[64px]  ">
+    <div>
       <UserContext.Provider value={{ user, setUser }}>
-        {/* <img className="fixed z-[-1]" src={backGroundImage} /> */}
+        <img className="fixed z-[-1] w-full h-full" src={backGroundImage} />
 
         {/* <Carousel /> */}
+        {/* <Navbar /> */}
+
         <Routes>
           <Route path="/" Component={Home} />
-        </Routes>
-        <Navbar />
-        <Routes>
           <Route path="/Login" Component={Login} />
           <Route path="/Register" Component={Register} />
           <Route path="/Main" Component={Main} />
