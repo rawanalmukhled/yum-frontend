@@ -1,24 +1,32 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const ViewRecipeCard = ({ recipe }) => {
   return (
     <div>
-      <div className="card card-side bg-base-100 shadow-xl">
-        <figure>
-          <img src={recipe.recipeimage} alt="" />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">{recipe.name}</h2>
-          <p>{recipe.username}</p>
-          <p>{recipe.category}</p>
-          <p>{recipe.ingredients}</p>
-          <p> {recipe.instructions}</p>
-          <NavLink to={"/main"}>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">BACK</button>
+      <div classname="flex flex-col">
+        <div className="w-full">
+          <Navbar />
+        </div>
+        <div className="flex justify-center items-center mt-10">
+          <div class="card w-96 bg-base-100 shadow-xl image-full  ">
+            <figure>
+              <img src={recipe.recipeimage} alt="" />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">{recipe.name}</h2>
+              <p>{recipe.username}</p>
+              <p>{recipe.category}</p>
+              <p>{recipe.ingredients}</p>
+              <p> {recipe.instructions}</p>
+              <div class="card-actions justify-end">
+                <NavLink to={"/main"}>
+                  <button class="btn btn-primary">BACK</button>
+                </NavLink>
+              </div>
             </div>
-          </NavLink>
+          </div>
         </div>
       </div>
     </div>

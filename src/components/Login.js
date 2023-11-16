@@ -25,9 +25,13 @@ const Logining = () => {
   return (
     <div className=" h-screen w-screen flex justify-center items-center bg-base-100">
       <div className=" gap-3  w-[50%] h-[80%] flex flex-col justify-center items-center bg-base-200 rounded-md ">
-        <h1 className="  text-[35px] font-bold">WELCOME TO YOUR KITCHEN!</h1>
+        <h1 className="  text-[35px] font-bold  text-amber-950">
+          WELCOME TO YOUR KITCHEN!
+        </h1>
         <div>
-          <h1 className="  text-[16px] font-bold">Username: </h1>
+          <h1 className="  text-[16px] font-bold  text-amber-950">
+            Username:{" "}
+          </h1>
           <input
             name="username"
             onChange={handleChange}
@@ -36,7 +40,9 @@ const Logining = () => {
           />
         </div>
         <div>
-          <h1 className="  text-[16px] font-bold">Password: </h1>
+          <h1 className="  text-[16px] font-bold  text-amber-950">
+            Password:{" "}
+          </h1>
           <input
             name="password"
             onChange={handleChange}
@@ -46,7 +52,7 @@ const Logining = () => {
           />
         </div>
 
-        <button onClick={() => mutate()} className="btn glass ">
+        <button onClick={() => mutate()} className="btn glass  text-amber-950">
           Login
         </button>
       </div>

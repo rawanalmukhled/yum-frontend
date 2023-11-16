@@ -11,7 +11,7 @@ const Navbar = () => {
     logout(); //flex-none menu menu-horizontal px-1       <div className="navbar bg-base-200 flex flex-row">
   };
   return (
-    <div className="navbar w-full bg-base-100  top-0  mb-2">
+    <div className="navbar w-full bg-base-200  top-0  mb-1">
       <div className="flex w-full items-center justify-start ">
         {/* <NavLink
           to="/"
@@ -29,44 +29,47 @@ const Navbar = () => {
             </NavLink> */}
             <NavLink to={"/main"}>
               <img
-                src={require("../assest/download.png")}
+                src={require("../assest/Pinch-of-Yum-Logo.png")}
                 style={{
-                  borderTopRightRadius: 30,
                   height: 70,
-                  width: 100,
+                  width: 500,
                   borderBottomRightRadius: 30,
                 }}
               />
             </NavLink>
-            <div className="flex justify-end items-end w-full gap-2 ">
-              <NavLink to="/myRecipes" className="btn btn-glass">
+            <div className="flex justify-end items-end w-full ">
+              <NavLink to="/myRecipes" className="btn btn-glass  bg-amber-500">
                 MY Recipes
               </NavLink>
-              <Link to="/" onClick={handleLogout} className="btn bg-amber-500 ">
+              <Link to="/main" onClick={handleLogout} className="btn ">
                 LOGOUT
               </Link>
             </div>
           </>
         ) : (
-          <div className="flex items-end justify-end w-full gap-2">
-            <div className=" flex justify-start items-start w-full">
+          <div className="flex items-end justify-end w-full">
+            <div className=" flex justify-start items-start w-full ml-5">
+              {/* <h1> PINCH OF YUM</h1> */}
               <img
-                src={require("../assest/download.png")}
+                src={require("../assest/Pinch-of-Yum-Logo.png")}
                 style={{
-                  borderTopRightRadius: 30,
                   height: 70,
-                  width: 100,
+                  width: 500,
                   borderBottomRightRadius: 30,
                 }}
               />
             </div>
 
             <NavLink to="/login">
-              <button className="btn btn-glass">LOGIN</button>
+              <button className="btn  bg-glass bg-base-300  text-amber-950">
+                LOGIN
+              </button>
             </NavLink>
             <NavLink to="/register">
               {" "}
-              <button className="btn bg-amber-500 ">REGISTER</button>
+              <button className="btn ml-2 bg-base-300  text-amber-950">
+                REGISTER
+              </button>
             </NavLink>
           </div>
         )}

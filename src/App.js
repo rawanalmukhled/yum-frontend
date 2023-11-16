@@ -25,7 +25,10 @@ function App() {
   return (
     <div>
       <UserContext.Provider value={{ user, setUser }}>
-        <img className="fixed z-[-1] w-full h-full" src={backGroundImage} />
+        {/* <img
+          className="fixed z-[-1] w-full h-full"
+          src={require("./assest/")}
+        /> */}
 
         {/* <Carousel /> */}
         {/* <Navbar /> */}

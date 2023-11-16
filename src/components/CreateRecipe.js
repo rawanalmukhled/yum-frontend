@@ -49,7 +49,9 @@ const AddRecipe = () => {
   return (
     <div className=" h-screen w-screen flex justify-center items-center bg-base-100">
       <div className=" gap-3  w-[50%] h-[80%] flex flex-col justify-center items-center bg-base-200 rounded-md ">
-        <h1 className="  text-[35px] font-bold">LOOKS DELICIOUS </h1>
+        <h1 className="  text-[35px] font-bold  text-amber-950">
+          LOOKS DELICIOUS{" "}
+        </h1>
 
         <input
           name="name"
@@ -90,8 +92,8 @@ const AddRecipe = () => {
           name="recipeimage"
           className="file-input file-input-bordered w-[500px] h-[50px]"
         />
-        <button onClick={mutate} className="btn glass ">
-          Add
+        <button onClick={mutate} className="btn glass  text-amber-950 ">
+          Add TO MENU
         </button>
       </div>
     </div>

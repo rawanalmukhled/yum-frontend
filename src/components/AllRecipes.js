@@ -43,29 +43,45 @@ const AllRecipes = () => {
           <div className="flex justify-center items-center">
             <div className="section-title text-center ">
               <div className="input-group rounded">
-                <h1> hellox</h1>{" "}
-                <input
+                <div className="flex flex-col">
+                  <div>
+                    <h1> FIND YOUR RECIPE </h1>
+                  </div>
+                  <div className="mt-2">
+                    <input
+                      type="text"
+                      placeholder="Search "
+                      className="btn glass input input-bordered w-24 md:w-auto ml-4"
+                      onChange={(e) => setQuery(e.target.value)}
+                    />
+
+                    {/* <input
                   type="search"
                   className="form-control input input-bordered input-error w-full max-w-xs"
                   placeholder="Search"
                   onChange={(e) => setQuery(e.target.value)}
                   aria-label="Search"
                   aria-describedby="search-addon"
-                />
-                {/* <input type="text" placeholder="Type here" className="" /> */}
-                <br />
-                <select
-                  className="form-select"
-                  onChange={(e) => {
-                    setType(e.target.value);
-                  }}
-                >
-                  <option value="" selected>
-                    All
-                  </option>
-                  {categorySelectOptions}
-                </select>
+                /> */}
+                    {/* <input type="text" placeholder="Type here" className="" /> */}
+                    <br />
+
+                    <select
+                      className="form-select w-20"
+                      onChange={(e) => {
+                        setType(e.target.value);
+                      }}
+                    >
+                      <option value="" selected>
+                        All
+                      </option>
+
+                      {categorySelectOptions}
+                    </select>
+                  </div>
+                </div>
               </div>
+
               {/* <div>
                 <AllRecipes />
               </div> */}

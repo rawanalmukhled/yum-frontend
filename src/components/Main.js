@@ -16,7 +16,7 @@ const Main = () => {
           <div className="">
             <Category />
           </div>
-          <div className="">
+          <div className=" mr-1 ml-1">
             <AllRecipes />
           </div>
         </div>

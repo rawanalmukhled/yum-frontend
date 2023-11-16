@@ -16,7 +16,7 @@ const MyRecipes = () => {
     return <RecipeCard recipe={recipe} />;
   });
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-col">
       <div className="w-full">
         <Navbar />
       </div>
@@ -25,14 +25,16 @@ const MyRecipes = () => {
           <Category />
         </div>
         <div className="flex flex-col items-center w-full gap-5 h-full  ">
-          <div className="flex items-end justify-center gap-5 w-full text-black  ">
+          <div className="flex items-end justify-between gap-5 w-full text-black mt-2 mr-3 ml-2 ">
             <input
               type="text"
               placeholder="Search "
               className="btn glass input input-bordered w-24 md:w-auto ml-4"
             />
             <Link to={"/CreateRecipe"}>
-              <button className="btn glass  ">Create your own</button>
+              <button className="btn glass  text-amber-950 ">
+                Create your own
+              </button>
             </Link>
           </div>
           <div className="flex justify-center items-center gap-10 flex-wrap">

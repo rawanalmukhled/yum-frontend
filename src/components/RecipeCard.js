@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const RecipeCard = ({ recipe }) => {
   console.log(recipe);
   return (
-    <div class="card w-80 bg-base-100 shadow-xl">
+    <div class="card w-[250px] bg-base-200 shadow-xl">
       <img
         className="w-full h-35"
         src={
@@ -18,7 +18,7 @@ const RecipeCard = ({ recipe }) => {
         <h1> chef : {recipe.user.username}</h1>
         <div class="card-actions justify-end">
           <NavLink to={"/ViewRecipe"}>
-            <button className="btn btn-primary">VIEW</button>{" "}
+            <button className="btn bg-amber-500">VIEW</button>{" "}
           </NavLink>
         </div>
       </div>
