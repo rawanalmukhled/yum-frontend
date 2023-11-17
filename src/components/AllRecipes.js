@@ -3,7 +3,7 @@ import RecipeCard from "./RecipeCard";
 import { getAllCategories, getAllRecipes } from "../api/auth";
 import { useEffect } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-
+import mainBg from "../assest/mainBg.jpeg";
 const AllRecipes = () => {
   const [query, setQuery] = useState("");
   const [type, setType] = useState("");
@@ -22,13 +22,13 @@ const AllRecipes = () => {
   const recipesList = recipes
     ?.filter((recipe) => {
       return recipe.name
-        .toLocaleLowerCase()
-        .includes(query.toLocaleLowerCase());
+        ?.toLocaleLowerCase()
+        .includes(query?.toLocaleLowerCase());
     })
     ?.filter((recipe) => {
       return recipe.category?.name
-        .toLocaleLowerCase()
-        .includes(type.toLocaleLowerCase());
+        ?.toLocaleLowerCase()
+        .includes(type?.toLocaleLowerCase());
     })
     ?.map((recipe) => <RecipeCard recipe={recipe} key={recipe._id} />);
 
@@ -36,15 +36,19 @@ const AllRecipes = () => {
     return <option value={category.name}>{category.name}</option>;
   });
   return (
-    <section id="doctors" className="doctor-section pt-140">
+    <section id="doctors" className="relative doctor-section pt-[140px] ">
+      {/* <img src={mainBg} className="absolute w-[100%] h-[100vh] " /> */}
       <div className="container">
         <div className="flex flex-col gap-5 justify-content-center">
           <div className="flex justify-center items-center">
             <div className="section-title text-center ">
+              <p className="text-2xl p-10 text-white font-extrabold">
+                Find a Recipe :
+              </p>
               <div className="input-group rounded">
                 <input
                   type="search"
-                  className="form-control input input-bordered input-error w-full max-w-xs"
+                  className="form-control bg-opacity-50 input input-bordered input-error w-full max-w-xs"
                   placeholder="Search"
                   onChange={(e) => setQuery(e.target.value)}
                   aria-label="Search"
@@ -52,9 +56,8 @@ const AllRecipes = () => {
                 />
                 {/* <input type="text" placeholder="Type here" className="" /> */}
                 <br />
-                Find a Recipe :
                 <select
-                  className="form-select"
+                  className="form-select w-1/2 h-12"
                   onChange={(e) => {
                     setType(e.target.value);
                   }}

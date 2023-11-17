@@ -15,7 +15,7 @@ const MyRecipes = () => {
     return <RecipeCard recipe={recipe} />;
   });
   return (
-    <div className="flex flex-row h-screen max-w-screen">
+    <div className="flex flex-row h-screen max-w-screen mt-[87px]">
       <div>
         <Category />
       </div>
