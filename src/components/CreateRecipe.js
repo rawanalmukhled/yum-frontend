@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CreateOneRecipe } from "../api/recipe";
 import Category from "./Category";
+import mainBg from "../assest/mainBg.jpeg";
 
 const AddRecipe = () => {
   const [recipeInfo, setRecipeInfo] = useState({});
@@ -47,8 +48,10 @@ const AddRecipe = () => {
   });
 
   return (
-    <div className=" h-screen w-screen flex justify-center items-center bg-base-100">
-      <div className=" gap-3  w-[50%] h-[80%] flex flex-col justify-center items-center bg-base-200 rounded-md ">
+    <div className="absolute top-0 h-screen w-screen flex justify-center items-center bg-base-100">
+      <img src={mainBg} className="fixed z-[1] w-[100%] h-[100vh] " />
+
+      <div className="fixed z-[2] gap-3  w-[50%] h-[80%] flex flex-col justify-center items-center bg-base-200 rounded-md ">
         <h1 className="  text-[35px] font-bold">LOOKS DELICIOUS </h1>
 
         <input
